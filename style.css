@@ -116,7 +116,7 @@ button {
     color: var(--text-color-dark);
     display: flex;
     align-items: baseline; 
-
+}
 .balance-info .balance {
     margin-left: 5px;
 }
