@@ -1,166 +1,50 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EasyPay - Home</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Transfer Receipt</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="bg-light">
 
-    <div class="app-container">
-        <div class="status-bar">
-            <span>9:41</span>
-            <div class="status-icons">
-                <i class="fas fa-signal"></i>
-                <i class="fas fa-wifi"></i>
-                <i class="fas fa-battery-full"></i>
-            </div>
+  <main class="container my-4">
+    <section class="bg-white rounded-4 p-4 shadow-sm text-center">
+
+      <header class="mb-4">
+        <h5 class="text-start text-muted">← Transfer Receipt</h5>
+        <img src="https://cdn-icons-png.flaticon.com/512/3926/3926347.png" alt="Transfer Illustration" class="img-fluid w-50 mx-auto d-block my-3" style="max-height: 150px;">
+      </header>
+
+      <section>
+        <h3 class="fw-bold">Transfer Success</h3>
+        <p class="text-muted">Your money has been successfully sent to<br><strong>Nayantara V</strong></p>
+        <p class="fs-5 text-muted mt-3">Total Transfer</p>
+        <h2 class="fw-bold text-primary">$132.00</h2>
+      </section>
+
+      <hr class="my-4">
+
+      <section class="bg-light rounded-3 d-flex align-items-center justify-content-between px-3 py-2 mb-4">
+        <div class="d-flex align-items-center">
+          <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png" alt="Recipient Avatar" class="rounded-circle me-2" width="40" height="40">
+          <div class="text-start">
+            <strong>Nayantara V</strong><br>
+            <small class="text-muted">8050530XXX</small>
+          </div>
         </div>
+        <div class="text-end">
+          <small class="text-muted">3:02 PM</small>
+        </div>
+      </section>
 
-        <header class="home-header">
-            <p class="greeting">Hi, Samantha</p>
-            <div class="balance-info">
-                <span>$</span>
-                <span class="balance">4,590.00</span>
-            </div>
-        </header>
-
-        <main class="main-content">
-            <section class="action-buttons-section">
-                <h2 class="sr-only">Acciones Rápidas</h2> <ul class="action-buttons-list">
-                    <li>
-                        <button class="action-btn">
-                            <i class="fas fa-plus-circle"></i>
-                            <span>Top Up</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="action-btn">
-                            <i class="fas fa-paper-plane"></i>
-                            <span>Send</span>
-                        </button>
-                    </li>
-                    <li>
-                        <button class="action-btn">
-                            <i class="fas fa-money-bill-transfer"></i>
-                            <span>Withdraw</span>
-                        </button>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="service-grid-section">
-                <h2 class="sr-only">Servicios</h2>
-                <ul class="service-grid">
-                    <li>
-                        <a href="#" class="service-item">
-                            <div class="service-icon"><i class="fas fa-globe"></i></div>
-                            <span>Internet</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="service-item">
-                            <div class="service-icon"><i class="fas fa-car"></i></div>
-                            <span>Vehicle</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="service-item">
-                            <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
-                            <span>Bill</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="service-item">
-                            <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
-                            <span>Electricity</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="service-item">
-                            <div class="service-icon"><i class="fas fa-tv"></i></div>
-                            <span>TV Cable</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="service-item">
-                            <div class="service-icon"><i class="fas fa-ellipsis-h"></i></div>
-                            <span>More</span>
-                        </a>
-                    </li>
-                </ul>
-            </section>
-
-            <section class="promotion-banner-section">
-                <h2 class="sr-only">Oferta Especial</h2>
-                <div class="promotion-banner">
-                    <div class="promo-text">
-                        <p class="promo-discount">50% OFF</p>
-                        <p class="promo-description">Summer special deal</p>
-                        <p class="promo-cta">Valid for new user only</p>
-                    </div>
-                    <div class="promo-image">
-                        <img src="./img/image.png" alt="Promoción de Verano">
-                    </div>
-                </div>
-            </section>
-
-            <section class="recent-transactions-section">
-                <div class="transactions-header">
-                    <h2>Recent Transaction</h2>
-                    <a href="#" class="see-all">See All</a>
-                </div>
-                <ul class="transactions-list">
-                    <li class="transaction-item">
-                        <div class="transaction-icon"><i class="fas fa-store"></i></div>
-                        <div class="transaction-details">
-                            <p class="transaction-name">Reg K</p>
-                            <time datetime="2022-02-24" class="transaction-date">February 24, 2022</time>
-                        </div>
-                        <span class="transaction-amount">-$240.00</span>
-                    </li>
-                    </ul>
-            </section>
-        </main>
-
-        <footer class="bottom-nav">
-            <nav>
-                <ul class="nav-list">
-                    <li>
-                        <a href="#" class="nav-item active">
-                            <i class="fas fa-home"></i>
-                            <span>Home</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-item">
-                            <i class="fas fa-dollar-sign"></i>
-                            <span>Payments</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-item scan-btn">
-                            <i class="fas fa-qrcode"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-item">
-                            <i class="fas fa-chart-line"></i>
-                            <span>Insights</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" class="nav-item">
-                            <i class="fas fa-user"></i>
-                            <span>Profile</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </footer>
-    </div>
+      <div class="d-grid gap-2">
+        <button class="btn btn-dark">Done</button>
+        <a href="#" class="text-decoration-none text-primary">Transfer more money</a>
+      </div>
+    </section>
+  </main>
 
 </body>
 </html>
