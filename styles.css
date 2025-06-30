@@ -1,0 +1,482 @@
+/* Variables de color */
+:root {
+    --bg-color-primary: #F9EFE5;
+    --text-color-dark: #000000;
+    --gray-dark: #7F8790;
+    --gray-light: #8F92A1;
+    --white-soft: #F8F8F8;
+    --action-button-bg: #E8E8E8; /* Un gris claro para los botones de acción */
+    --accent-color: #FF6B6B; /* Rojo de acento para algunos detalles o botones */
+    --border-color: #E0E0E0; /* Borde sutil */
+}
+
+/* Estilos Generales */
+body {
+    font-family: 'Roboto', 'Arial', sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--bg-color-primary); /* Color de fondo general */
+    color: var(--text-color-dark);
+    box-sizing: border-box;
+    padding: 20px; /* Espacio alrededor del contenedor de la app */
+}
+
+.app-container {
+    width: 375px; /* Ancho típico de un teléfono móvil */
+    height: 812px; /* Alto típico de un teléfono móvil */
+    background-color: var(--white-soft);
+    border-radius: 30px; /* Bordes redondeados del teléfono */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Asegura que el contenido no se salga */
+    position: relative; /* Para posicionar las páginas */
+}
+
+.page {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 0 20px; /* Padding horizontal para el contenido de la página */
+    display: none; /* Por defecto, ocultar todas las páginas */
+    flex-direction: column; /* Para usar flexbox en la disposición interna */
+}
+
+.page.active-page {
+    display: flex; /* Mostrar la página activa */
+}
+
+/* Barra de estado (hora, iconos de señal) */
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.status-icons i {
+    margin-left: 5px;
+}
+
+/* --- ESTILOS DE LA PÁGINA HOME (PÁGINA 1) --- */
+#home-page {
+    background-color: #ffffff; /* Fondo blanco para la página de inicio */
+    padding-top: 10px; /* Ajuste para la barra de estado */
+    padding-bottom: 70px; /* Espacio para la barra de navegación inferior */
+    justify-content: flex-start; /* Alinear el contenido al inicio */
+}
+
+.home-header {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.home-header p {
+    font-size: 16px;
+    color: var(--gray-dark);
+    margin: 0;
+}
+
+.balance-info {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-color-dark);
+}
+
+.balance-info .balance {
+    margin-left: 5px;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.action-btn {
+    flex: 1;
+    background-color: var(--action-button-bg);
+    border: none;
+    border-radius: 15px;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color-dark);
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.action-btn:hover {
+    background-color: #d8d8d8;
+}
+
+.action-btn i {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: var(--gray-dark);
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.service-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 13px;
+    color: var(--gray-dark);
+}
+
+.service-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--action-button-bg);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.service-icon i {
+    font-size: 22px;
+    color: var(--gray-dark);
+}
+
+.promotion-banner {
+    display: flex;
+    background-color: var(--accent-color); /* Color rojo de ejemplo */
+    border-radius: 15px;
+    padding: 15px;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.promo-text {
+    flex: 1;
+    margin-right: 15px;
+}
+
+.promo-discount {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.promo-description {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.promo-cta {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.promo-image img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.recent-transactions {
+    margin-bottom: 20px;
+}
+
+.transactions-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.transactions-header h3 {
+    font-size: 18px;
+    margin: 0;
+}
+
+.see-all {
+    color: var(--gray-dark);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.transaction-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.transaction-item:last-child {
+    border-bottom: none;
+}
+
+.transaction-icon {
+    width: 40px;
+    height: 40px;
+    background-color: var(--action-button-bg);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.transaction-icon i {
+    font-size: 18px;
+    color: var(--gray-dark);
+}
+
+.transaction-details {
+    flex-grow: 1;
+}
+
+.transaction-name {
+    font-weight: 500;
+    margin: 0;
+}
+
+.transaction-date {
+    font-size: 12px;
+    color: var(--gray-light);
+    margin: 0;
+}
+
+.transaction-amount {
+    font-weight: bold;
+    color: var(--text-color-dark);
+}
+
+.bottom-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 10px 0;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
+    height: 60px; /* Altura fija para la barra de navegación */
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--gray-dark);
+    font-size: 11px;
+    transition: color 0.3s ease;
+}
+
+.nav-item i {
+    font-size: 20px;
+    margin-bottom: 3px;
+}
+
+.nav-item.active {
+    color: var(--accent-color); /* O un color que resalte */
+}
+
+.scan-btn {
+    width: 55px;
+    height: 55px;
+    background-color: var(--text-color-dark); /* Botón central oscuro */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -15px; /* Levantar el botón central */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.scan-btn i {
+    color: #fff;
+    font-size: 24px;
+    margin: 0; /* Eliminar margen del icono */
+}
+
+
+/* --- ESTILOS DE LA PÁGINA DE TRANSFERENCIA EXITOSA (PÁGINA 2) --- */
+#success-page {
+    background-color: #ffffff;
+    padding-top: 10px; /* Ajuste para la barra de estado */
+    padding-bottom: 20px; /* Espacio para los botones inferiores */
+    justify-content: flex-start;
+    align-items: center; /* Centrar el contenido horizontalmente */
+}
+
+.success-header {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Asegurar que ocupe todo el ancho para el padding */
+    padding-left: 20px; /* Alineado con el contenido principal */
+    margin-bottom: 30px;
+}
+
+.success-header i {
+    font-size: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.success-header h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+}
+
+.success-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1; /* Para que el contenido ocupe el espacio disponible */
+    justify-content: center; /* Centrar verticalmente si hay espacio */
+    padding-bottom: 100px; /* Para que los botones inferiores no choquen con el contenido */
+}
+
+.success-illustration img {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.success-message-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.success-message-detail {
+    font-size: 15px;
+    color: var(--gray-dark);
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.transfer-summary {
+    background-color: var(--white-soft); /* Fondo para el resumen */
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 20px;
+    width: 80%; /* Ancho del recuadro */
+    max-width: 250px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.transfer-summary p {
+    font-size: 14px;
+    color: var(--gray-dark);
+    margin-bottom: 5px;
+}
+
+.transfer-amount {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--text-color-dark);
+}
+
+.recipient-info {
+    display: flex;
+    align-items: center;
+    background-color: var(--white-soft);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 15px;
+    width: 80%;
+    max-width: 250px;
+    margin-bottom: 40px;
+}
+
+.recipient-avatar img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.recipient-details {
+    text-align: left;
+}
+
+.recipient-name {
+    font-weight: 500;
+    margin: 0;
+    font-size: 16px;
+}
+
+.recipient-time {
+    font-size: 12px;
+    color: var(--gray-light);
+    margin: 0;
+}
+
+.success-actions {
+    position: absolute; /* Posicionar en la parte inferior */
+    bottom: 20px;
+    width: calc(100% - 40px); /* Ancho del contenedor de la app - padding */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.btn {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.primary-btn {
+    background-color: var(--text-color-dark); /* Botón principal oscuro */
+    color: #fff;
+}
+
+.primary-btn:hover {
+    background-color: #333;
+}
+
+.secondary-btn {
+    background-color: var(--action-button-bg);
+    color: var(--text-color-dark);
+}
+
+.secondary-btn:hover {
+    background-color: #d8d8d8;
+}
