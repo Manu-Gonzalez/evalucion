@@ -1,16 +1,19 @@
 /* Variables de color */
 :root {
-    --bg-color-primary: #F9EFE5;
+    --bg-color-primary: #F9EFE5; /* Fondo general del "escenario" */
+    --app-bg-color: #ffffff;    /* Fondo de la aplicación/teléfono */
     --text-color-dark: #000000;
     --gray-dark: #7F8790;
     --gray-light: #8F92A1;
     --white-soft: #F8F8F8;
     --action-button-bg: #E8E8E8; /* Un gris claro para los botones de acción */
-    --accent-color: #FF6B6B; /* Rojo de acento para algunos detalles o botones */
+    --promo-banner-bg: #FF6B6B; /* Rojo de acento para el banner de promoción */
     --border-color: #E0E0E0; /* Borde sutil */
+    --mobile-width: 375px;
+    --mobile-height: 812px;
 }
 
-/* Estilos Generales */
+/* Estilos Generales y Reseteo Básico */
 body {
     font-family: 'Roboto', 'Arial', sans-serif;
     margin: 0;
@@ -18,36 +21,69 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: var(--bg-color-primary); /* Color de fondo general */
+    background-color: var(--bg-color-primary);
     color: var(--text-color-dark);
     box-sizing: border-box;
-    padding: 20px; /* Espacio alrededor del contenedor de la app */
+    padding: 10px; /* Un poco de padding para pantallas pequeñas */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.app-container {
-    width: 375px; /* Ancho típico de un teléfono móvil */
-    height: 812px; /* Alto típico de un teléfono móvil */
-    background-color: var(--white-soft);
-    border-radius: 30px; /* Bordes redondeados del teléfono */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    overflow: hidden; /* Asegura que el contenido no se salga */
-    position: relative; /* Para posicionar las páginas */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.page {
-    width: 100%;
-    height: 100%;
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    background: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.sr-only {
     position: absolute;
-    top: 0;
-    left: 0;
-    box-sizing: border-box;
-    padding: 0 20px; /* Padding horizontal para el contenido de la página */
-    display: none; /* Por defecto, ocultar todas las páginas */
-    flex-direction: column; /* Para usar flexbox en la disposición interna */
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
-.page.active-page {
-    display: flex; /* Mostrar la página activa */
+/* Contenedor principal de la aplicación (el "teléfono") */
+.app-container {
+    width: 100%; /* Por defecto ocupa todo el ancho disponible */
+    max-width: var(--mobile-width); /* Máximo ancho como un móvil */
+    height: 100vh; /* Ocupa el 100% de la altura de la vista */
+    max-height: var(--mobile-height); /* Máximo alto como un móvil */
+    background-color: var(--app-bg-color);
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    position: relative;
+    padding-bottom: 0; /* Asegurarse de que no haya padding que empuje el footer */
+}
+
+/* Padding horizontal común para el contenido dentro del teléfono */
+.status-bar,
+.home-header,
+.action-buttons-section,
+.service-grid-section,
+.promotion-banner-section,
+.recent-transactions-section {
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 /* Barra de estado (hora, iconos de señal) */
@@ -55,32 +91,27 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-size: 14px;
     font-weight: 500;
 }
 
-.status-icons i {
-    margin-left: 5px;
+.status-icons {
+    display: flex;
+    gap: 5px; /* Espacio entre los iconos */
 }
 
-/* --- ESTILOS DE LA PÁGINA HOME (PÁGINA 1) --- */
-#home-page {
-    background-color: #ffffff; /* Fondo blanco para la página de inicio */
-    padding-top: 10px; /* Ajuste para la barra de estado */
-    padding-bottom: 70px; /* Espacio para la barra de navegación inferior */
-    justify-content: flex-start; /* Alinear el contenido al inicio */
-}
-
+/* Encabezado de la página de inicio */
 .home-header {
-    margin-top: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 10px;
     margin-bottom: 20px;
 }
 
-.home-header p {
+.home-header .greeting {
     font-size: 16px;
     color: var(--gray-dark);
     margin: 0;
@@ -90,23 +121,36 @@ body {
     font-size: 24px;
     font-weight: bold;
     color: var(--text-color-dark);
+    display: flex;
+    align-items: baseline; /* Alinea los números base */
 }
 
 .balance-info .balance {
     margin-left: 5px;
 }
 
-.action-buttons {
+/* Contenido principal */
+.main-content {
+    flex-grow: 1; /* Permite que el contenido principal ocupe el espacio restante */
+    overflow-y: auto; /* Permite desplazamiento si el contenido es demasiado largo */
+    display: flex;
+    flex-direction: column; /* Apila las secciones verticalmente */
+    gap: 30px; /* Espacio entre secciones */
+    padding-bottom: 20px; /* Espacio al final del scroll */
+}
+
+/* Sección de botones de acción rápida */
+.action-buttons-list {
     display: flex;
     justify-content: space-around;
     gap: 10px;
-    margin-bottom: 30px;
 }
 
 .action-btn {
-    flex: 1;
+    flex: 1; /* Permite que los botones se expandan y contraigan */
+    min-width: 80px; /* Ancho mínimo para que no se encogan demasiado */
+    max-width: 120px; /* Ancho máximo para evitar que sean demasiado grandes en pantallas anchas */
     background-color: var(--action-button-bg);
-    border: none;
     border-radius: 15px;
     padding: 15px 0;
     display: flex;
@@ -114,7 +158,6 @@ body {
     align-items: center;
     color: var(--text-color-dark);
     font-size: 14px;
-    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
@@ -128,11 +171,12 @@ body {
     color: var(--gray-dark);
 }
 
+/* Sección de la cuadrícula de servicios (usando flexbox para simular una cuadrícula) */
 .service-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea */
+    justify-content: flex-start; /* Alinea los elementos al inicio */
+    gap: 15px; /* Espacio entre los items */
 }
 
 .service-item {
@@ -142,6 +186,8 @@ body {
     text-align: center;
     font-size: 13px;
     color: var(--gray-dark);
+    flex: 0 0 calc(33.33% - 10px); /* Aproximadamente 3 columnas con gap */
+    max-width: calc(33.33% - 10px);
 }
 
 .service-icon {
@@ -160,20 +206,20 @@ body {
     color: var(--gray-dark);
 }
 
+/* Sección del banner de promoción */
 .promotion-banner {
     display: flex;
-    background-color: var(--accent-color); /* Color rojo de ejemplo */
+    background-color: var(--promo-banner-bg);
     border-radius: 15px;
     padding: 15px;
     align-items: center;
     justify-content: space-between;
     color: #fff;
-    margin-bottom: 30px;
+    gap: 15px; /* Espacio entre texto e imagen */
 }
 
 .promo-text {
-    flex: 1;
-    margin-right: 15px;
+    flex: 1; /* Permite que el texto ocupe el espacio restante */
 }
 
 .promo-discount {
@@ -192,6 +238,10 @@ body {
     opacity: 0.8;
 }
 
+.promo-image {
+    flex-shrink: 0; /* Evita que la imagen se encoja */
+}
+
 .promo-image img {
     width: 80px;
     height: 80px;
@@ -199,10 +249,7 @@ body {
     object-fit: cover;
 }
 
-.recent-transactions {
-    margin-bottom: 20px;
-}
-
+/* Sección de transacciones recientes */
 .transactions-header {
     display: flex;
     justify-content: space-between;
@@ -210,7 +257,7 @@ body {
     margin-bottom: 15px;
 }
 
-.transactions-header h3 {
+.transactions-header h2 {
     font-size: 18px;
     margin: 0;
 }
@@ -220,6 +267,12 @@ body {
     text-decoration: none;
     font-size: 14px;
     font-weight: 500;
+}
+
+.transactions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0; /* Las transacciones tienen bordes, no gap */
 }
 
 .transaction-item {
@@ -242,6 +295,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-right: 15px;
+    flex-shrink: 0;
 }
 
 .transaction-icon i {
@@ -251,6 +305,9 @@ body {
 
 .transaction-details {
     flex-grow: 1;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
 }
 
 .transaction-name {
@@ -267,32 +324,53 @@ body {
 .transaction-amount {
     font-weight: bold;
     color: var(--text-color-dark);
+    margin-left: 10px;
+    flex-shrink: 0;
 }
 
+/* Barra de navegación inferior (Footer) */
 .bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
+    flex-shrink: 0; /* Evita que el footer se encoja */
+    background-color: var(--app-bg-color);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
-    padding: 10px 0;
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.05);
-    height: 60px; /* Altura fija para la barra de navegación */
+    height: 70px; /* Altura un poco mayor para el botón flotante */
+    position: relative; /* Para el posicionamiento del scan-btn */
+    z-index: 10;
+    padding-bottom: env(safe-area-inset-bottom, 0); /* Para iPhones con notch */
+}
+
+.bottom-nav nav {
+    height: 100%; /* La navegación ocupa toda la altura del footer */
+}
+
+.bottom-nav .nav-list {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end; /* Alinea los items a la parte inferior para que el botón central sobresalga */
+    height: 100%; /* Ocupa toda la altura del padre */
+    padding: 0 10px; /* Padding horizontal para los items de navegación */
+}
+
+.bottom-nav .nav-list li {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Alinea el contenido a la parte inferior */
+    height: 100%; /* Asegura que el li ocupe su espacio completo */
 }
 
 .nav-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    text-decoration: none;
     color: var(--gray-dark);
     font-size: 11px;
     transition: color 0.3s ease;
+    padding-top: 5px;
+    height: 100%; /* Asegura que el a ocupe su espacio completo */
+    justify-content: center; /* Centra el contenido verticalmente */
 }
 
 .nav-item i {
@@ -301,182 +379,83 @@ body {
 }
 
 .nav-item.active {
-    color: var(--accent-color); /* O un color que resalte */
+    color: var(--promo-banner-bg);
 }
 
 .scan-btn {
-    width: 55px;
-    height: 55px;
-    background-color: var(--text-color-dark); /* Botón central oscuro */
+    width: 60px; /* Un poco más grande */
+    height: 60px; /* Un poco más grande */
+    background-color: var(--text-color-dark);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    top: -15px; /* Levantar el botón central */
+    position: absolute; /* Posicionamiento absoluto dentro del footer */
+    bottom: 25px; /* Ajusta este valor para el "efecto flotante" */
+    left: 50%;
+    transform: translateX(-50%); /* Centra el botón horizontalmente */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    font-size: 0;
 }
 
 .scan-btn i {
     color: #fff;
-    font-size: 24px;
-    margin: 0; /* Eliminar margen del icono */
-}
-
-
-/* --- ESTILOS DE LA PÁGINA DE TRANSFERENCIA EXITOSA (PÁGINA 2) --- */
-#success-page {
-    background-color: #ffffff;
-    padding-top: 10px; /* Ajuste para la barra de estado */
-    padding-bottom: 20px; /* Espacio para los botones inferiores */
-    justify-content: flex-start;
-    align-items: center; /* Centrar el contenido horizontalmente */
-}
-
-.success-header {
-    display: flex;
-    align-items: center;
-    width: 100%; /* Asegurar que ocupe todo el ancho para el padding */
-    padding-left: 20px; /* Alineado con el contenido principal */
-    margin-bottom: 30px;
-}
-
-.success-header i {
-    font-size: 20px;
-    margin-right: 20px;
-    cursor: pointer;
-}
-
-.success-header h3 {
-    font-size: 18px;
-    font-weight: 500;
+    font-size: 28px; /* Icono un poco más grande */
     margin: 0;
 }
 
-.success-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    flex-grow: 1; /* Para que el contenido ocupe el espacio disponible */
-    justify-content: center; /* Centrar verticalmente si hay espacio */
-    padding-bottom: 100px; /* Para que los botones inferiores no choquen con el contenido */
+/* --- Media Queries para responsividad --- */
+
+/* Para pantallas más grandes que un móvil (ej: tablets en vertical, desktops pequeños) */
+@media (min-width: 480px) {
+    body {
+        padding: 30px; /* Más padding en pantallas más grandes */
+    }
+
+    .app-container {
+        border-radius: 30px; /* Mantiene el borde redondeado */
+        height: var(--mobile-height); /* Se fija la altura para que parezca un móvil */
+    }
+
+    /* Ajustes para que los elementos no se estiren demasiado */
+    .action-buttons-list,
+    .service-grid,
+    .promotion-banner,
+    .transactions-list {
+        max-width: 400px; /* Limita el ancho de los grupos de elementos */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .action-buttons-list {
+        justify-content: space-between; /* Distribuye los botones */
+    }
+
+    .service-item {
+        /* Para 3 columnas: (100% - 2*gap) / 3 */
+        flex: 0 0 calc(33.33% - 10px);
+        max-width: calc(33.33% - 10px);
+    }
 }
 
-.success-illustration img {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 20px;
-}
+/* Para pantallas de escritorio más grandes */
+@media (min-width: 768px) {
+    body {
+        background-color: var(--bg-color-primary); /* Fondo beige más visible */
+    }
 
-.success-message-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
+    .app-container {
+        /* En pantallas grandes, se mantiene el tamaño de un móvil para la demo */
+        width: var(--mobile-width);
+        height: var(--mobile-height);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    }
 
-.success-message-detail {
-    font-size: 15px;
-    color: var(--gray-dark);
-    margin-bottom: 30px;
-    line-height: 1.5;
-}
-
-.transfer-summary {
-    background-color: var(--white-soft); /* Fondo para el resumen */
-    border: 1px solid var(--border-color);
-    border-radius: 15px;
-    padding: 20px;
-    width: 80%; /* Ancho del recuadro */
-    max-width: 250px;
-    margin-bottom: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.transfer-summary p {
-    font-size: 14px;
-    color: var(--gray-dark);
-    margin-bottom: 5px;
-}
-
-.transfer-amount {
-    font-size: 28px;
-    font-weight: bold;
-    color: var(--text-color-dark);
-}
-
-.recipient-info {
-    display: flex;
-    align-items: center;
-    background-color: var(--white-soft);
-    border: 1px solid var(--border-color);
-    border-radius: 15px;
-    padding: 15px;
-    width: 80%;
-    max-width: 250px;
-    margin-bottom: 40px;
-}
-
-.recipient-avatar img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    margin-right: 15px;
-    object-fit: cover;
-}
-
-.recipient-details {
-    text-align: left;
-}
-
-.recipient-name {
-    font-weight: 500;
-    margin: 0;
-    font-size: 16px;
-}
-
-.recipient-time {
-    font-size: 12px;
-    color: var(--gray-light);
-    margin: 0;
-}
-
-.success-actions {
-    position: absolute; /* Posicionar en la parte inferior */
-    bottom: 20px;
-    width: calc(100% - 40px); /* Ancho del contenedor de la app - padding */
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.btn {
-    width: 100%;
-    padding: 15px 20px;
-    border: none;
-    border-radius: 15px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.primary-btn {
-    background-color: var(--text-color-dark); /* Botón principal oscuro */
-    color: #fff;
-}
-
-.primary-btn:hover {
-    background-color: #333;
-}
-
-.secondary-btn {
-    background-color: var(--action-button-bg);
-    color: var(--text-color-dark);
-}
-
-.secondary-btn:hover {
-    background-color: #d8d8d8;
+    /* Asegurar que el contenido dentro del contenedor de la app se vea bien */
+    .action-buttons-list,
+    .service-grid,
+    .promotion-banner,
+    .transactions-list {
+        max-width: none; /* Eliminar el max-width para que usen el ancho del app-container */
+    }
 }
