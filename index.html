@@ -3,165 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EasyPay - Diseño UI</title>
-    <link rel="stylesheet" href="style.css">
+    <title>EasyPay - Home</title>
+    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
     <div class="app-container">
-        <div class="page active-page" id="home-page">
-            <div class="status-bar">
-                <span>9:41</span>
-                <div class="status-icons">
-                    <i class="fas fa-signal"></i>
-                    <i class="fas fa-wifi"></i>
-                    <i class="fas fa-battery-full"></i>
-                </div>
+        <div class="status-bar">
+            <span>9:41</span>
+            <div class="status-icons">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
             </div>
+        </div>
 
-            <header class="home-header">
-                <p>Hi, Samantha</p>
-                <div class="balance-info">
-                    <span>$</span>
-                    <span class="balance">4,590.00</span>
-                </div>
-            </header>
-
-            <div class="action-buttons">
-                <button class="action-btn">
-                    <i class="fas fa-plus-circle"></i>
-                    <span>Top Up</span>
-                </button>
-                <button class="action-btn">
-                    <i class="fas fa-paper-plane"></i>
-                    <span>Send</span>
-                </button>
-                <button class="action-btn">
-                    <i class="fas fa-money-bill-transfer"></i>
-                    <span>Withdraw</span>
-                </button>
+        <header class="home-header">
+            <p class="greeting">Hi, Samantha</p>
+            <div class="balance-info">
+                <span>$</span>
+                <span class="balance">4,590.00</span>
             </div>
+        </header>
 
-            <nav class="service-grid">
-                <div class="service-item">
-                    <div class="service-icon"><i class="fas fa-globe"></i></div>
-                    <span>Internet</span>
-                </div>
-                <div class="service-item">
-                    <div class="service-icon"><i class="fas fa-car"></i></div>
-                    <span>Vehicle</span>
-                </div>
-                <div class="service-item">
-                    <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
-                    <span>Bill</span>
-                </div>
-                <div class="service-item">
-                    <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
-                    <span>Electricity</span>
-                </div>
-                <div class="service-item">
-                    <div class="service-icon"><i class="fas fa-tv"></i></div>
-                    <span>TV Cable</span>
-                </div>
-                <div class="service-item">
-                    <div class="service-icon"><i class="fas fa-ellipsis-h"></i></div>
-                    <span>More</span>
-                </div>
-            </nav>
+        <main class="main-content">
+            <section class="action-buttons-section">
+                <h2 class="sr-only">Acciones Rápidas</h2> <ul class="action-buttons-list">
+                    <li>
+                        <button class="action-btn">
+                            <i class="fas fa-plus-circle"></i>
+                            <span>Top Up</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="action-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Send</span>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="action-btn">
+                            <i class="fas fa-money-bill-transfer"></i>
+                            <span>Withdraw</span>
+                        </button>
+                    </li>
+                </ul>
+            </section>
 
-            <div class="promotion-banner">
-                <div class="promo-text">
-                    <p class="promo-discount">50% OFF</p>
-                    <p class="promo-description">Summer special deal</p>
-                    <p class="promo-cta">Valid for new user only</p>
-                </div>
-                <div class="promo-image">
-                    <img src="https://via.placeholder.com/80x80/d3d3d3/ffffff?text=Promo" alt="Promoción">
-                </div>
-            </div>
+            <section class="service-grid-section">
+                <h2 class="sr-only">Servicios</h2>
+                <ul class="service-grid">
+                    <li>
+                        <a href="#" class="service-item">
+                            <div class="service-icon"><i class="fas fa-globe"></i></div>
+                            <span>Internet</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="service-item">
+                            <div class="service-icon"><i class="fas fa-car"></i></div>
+                            <span>Vehicle</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="service-item">
+                            <div class="service-icon"><i class="fas fa-file-invoice"></i></div>
+                            <span>Bill</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="service-item">
+                            <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+                            <span>Electricity</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="service-item">
+                            <div class="service-icon"><i class="fas fa-tv"></i></div>
+                            <span>TV Cable</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="service-item">
+                            <div class="service-icon"><i class="fas fa-ellipsis-h"></i></div>
+                            <span>More</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
 
-            <div class="recent-transactions">
+            <section class="promotion-banner-section">
+                <h2 class="sr-only">Oferta Especial</h2>
+                <div class="promotion-banner">
+                    <div class="promo-text">
+                        <p class="promo-discount">50% OFF</p>
+                        <p class="promo-description">Summer special deal</p>
+                        <p class="promo-cta">Valid for new user only</p>
+                    </div>
+                    <div class="promo-image">
+                        <img src="https://via.placeholder.com/80x80/FF6B6B/ffffff?text=Promo" alt="Promoción de Verano">
+                    </div>
+                </div>
+            </section>
+
+            <section class="recent-transactions-section">
                 <div class="transactions-header">
-                    <h3>Recent Transaction</h3>
+                    <h2>Recent Transaction</h2>
                     <a href="#" class="see-all">See All</a>
                 </div>
-                <div class="transaction-item">
-                    <div class="transaction-icon"><i class="fas fa-store"></i></div>
-                    <div class="transaction-details">
-                        <p class="transaction-name">Reg K</p>
-                        <p class="transaction-date">February 24, 2022</p>
-                    </div>
-                    <span class="transaction-amount">-$240.00</span>
-                </div>
-                </div>
+                <ul class="transactions-list">
+                    <li class="transaction-item">
+                        <div class="transaction-icon"><i class="fas fa-store"></i></div>
+                        <div class="transaction-details">
+                            <p class="transaction-name">Reg K</p>
+                            <time datetime="2022-02-24" class="transaction-date">February 24, 2022</time>
+                        </div>
+                        <span class="transaction-amount">-$240.00</span>
+                    </li>
+                    </ul>
+            </section>
+        </main>
 
-            <nav class="bottom-nav">
-                <a href="#" class="nav-item active">
-                    <i class="fas fa-home"></i>
-                    <span>Home</span>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fas fa-dollar-sign"></i>
-                    <span>Payments</span>
-                </a>
-                <a href="#" class="nav-item scan-btn">
-                    <i class="fas fa-qrcode"></i>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fas fa-chart-line"></i>
-                    <span>Insights</span>
-                </a>
-                <a href="#" class="nav-item">
-                    <i class="fas fa-user"></i>
-                    <span>Profile</span>
-                </a>
+        <footer class="bottom-nav">
+            <nav>
+                <ul class="nav-list">
+                    <li>
+                        <a href="#" class="nav-item active">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item">
+                            <i class="fas fa-dollar-sign"></i>
+                            <span>Payments</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item scan-btn">
+                            <i class="fas fa-qrcode"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Insights</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="nav-item">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                </ul>
             </nav>
-        </div>
-
-        <div class="page" id="success-page">
-            <div class="status-bar">
-                <span>9:41</span>
-                <div class="status-icons">
-                    <i class="fas fa-signal"></i>
-                    <i class="fas fa-wifi"></i>
-                    <i class="fas fa-battery-full"></i>
-                </div>
-            </div>
-
-            <header class="success-header">
-                <i class="fas fa-arrow-left"></i>
-                <h3>Transfer Receipt</h3>
-            </header>
-
-            <div class="success-content">
-                <div class="success-illustration">
-                    <img src="https://via.placeholder.com/150x150/d3d3d3/ffffff?text=Success" alt="Transfer Success">
-                </div>
-                <p class="success-message-title">Transfer Success</p>
-                <p class="success-message-detail">Your money has been successfully sent to Reyantara V</p>
-
-                <div class="transfer-summary">
-                    <p>Total Transfer:</p>
-                    <span class="transfer-amount">$132.00</span>
-                </div>
-
-                <div class="recipient-info">
-                    <div class="recipient-avatar">
-                        <img src="https://via.placeholder.com/40x40/d3d3d3/ffffff?text=RV" alt="Reyantara V">
-                    </div>
-                    <div class="recipient-details">
-                        <p class="recipient-name">Reyantara V</p>
-                        <p class="recipient-time">1:05 PM</p>
-                    </div>
-                </div>
-
-                <div class="success-actions">
-                    <button class="btn primary-btn">Done</button>
-                    <button class="btn secondary-btn">Transfer more money</button>
-                </div>
-            </div>
-        </div>
+        </footer>
     </div>
 
 </body>
