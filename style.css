@@ -175,8 +175,7 @@ button {
 .service-grid {
     display: flex;
     flex-wrap: wrap; /* Permite que los elementos se envuelvan a la siguiente línea */
-    justify-content: flex-start; /* Alinea los elementos al inicio */
-    gap: 15px; /* Espacio entre los items */
+    justify-content: flex-start;
 }
 
 .service-item {
@@ -186,7 +185,7 @@ button {
     text-align: center;
     font-size: 13px;
     color: var(--gray-dark);
-    flex: 0 0 calc(33.33% - 10px); /* Aproximadamente 3 columnas con gap */
+    flex: 0 0 calc(33.33% - 10px); 
     max-width: calc(33.33% - 10px);
 }
 
@@ -206,7 +205,6 @@ button {
     color: var(--gray-dark);
 }
 
-/* Sección del banner de promoción */
 .promotion-banner {
     display: flex;
     background-color: var(--promo-banner-bg);
@@ -215,11 +213,11 @@ button {
     align-items: center;
     justify-content: space-between;
     color: #fff;
-    gap: 15px; /* Espacio entre texto e imagen */
+    gap: 15px;
 }
 
 .promo-text {
-    flex: 1; /* Permite que el texto ocupe el espacio restante */
+    flex: 1;
 }
 
 .promo-discount {
@@ -239,7 +237,7 @@ button {
 }
 
 .promo-image {
-    flex-shrink: 0; /* Evita que la imagen se encoja */
+    flex-shrink: 0;
 }
 
 .promo-image img {
@@ -249,7 +247,6 @@ button {
     object-fit: cover;
 }
 
-/* Sección de transacciones recientes */
 .transactions-header {
     display: flex;
     justify-content: space-between;
@@ -272,7 +269,7 @@ button {
 .transactions-list {
     display: flex;
     flex-direction: column;
-    gap: 0; /* Las transacciones tienen bordes, no gap */
+    gap: 0; 
 }
 
 .transaction-item {
@@ -328,9 +325,8 @@ button {
     flex-shrink: 0;
 }
 
-/* Barra de navegación inferior (Footer) */
 .bottom-nav {
-    flex-shrink: 0; /* Evita que el footer se encoja */
+    flex-shrink: 0; 
     background-color: var(--app-bg-color);
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
