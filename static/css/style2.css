@@ -78,18 +78,16 @@ header h1 {
 }
 
 .promo-box {
-  background: pink;
+  padding: 0;
+  background: none;
   border-radius: 1rem;
-  padding: 1rem;
-  margin: 1rem 0;
-  position: relative;
+  overflow: hidden;
 }
 
 .promo-box img {
-  position: absolute;
-  right: 1rem;
-  bottom: 1rem;
-  width: 50px;
+  width: 100%;
+  display: block;
+  border-radius: 1rem;
 }
 
 .transactions .header {
