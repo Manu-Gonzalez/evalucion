@@ -18,7 +18,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 20px 16px; /* padding lateral para que respire en pantallas pequeñas */
+  padding: 20px 16px; 
 }
 
 .header h1 {
