@@ -1,163 +1,157 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    min-height: 100vh;
-    padding: 10px;
-  }
-  
-  .app {
-    background: #fff;
-    max-width: 400px;
-    width: 100%;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 20px;
-  }
-  
-  .header h1 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-  }
-  
-  .user-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .hi {
-    font-size: 1rem;
-  }
-  
-  .subtext {
-    font-size: 0.8rem;
-    color: gray;
-  }
-  
-  .balance {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  
-  .actions button {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    border-radius: 12px;
-    background: black;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  .services {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: space-between;
-  }
-  
-  .service {
-    flex: 1 1 22%;
-    text-align: center;
-    font-size: 0.8rem;
-    background: #f0f0f0;
-    padding: 10px 0;
-    border-radius: 10px;
-  }
-  
-  .promo-card {
-    background: #fddde6;
-    padding: 15px;
-    border-radius: 10px;
-    text-align: center;
-    position: relative;
-  }
-  
-  .promo-card .offer {
-    font-weight: bold;
-    font-size: 1rem;
-    color: #c6005a;
-  }
-  
-  .promo-card .promo-title {
-    font-size: 0.95rem;
-  }
-  
-  .promo-card .promo-img {
-    font-size: 2rem;
-    position: absolute;
-    right: 15px;
-    bottom: 15px;
-  }
-  
-  .transactions-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .transactions-header h2 {
-    font-size: 1rem;
-  }
-  
-  .transactions-header a {
-    font-size: 0.8rem;
-    text-decoration: none;
-    color: #007aff;
-  }
-  
-  .transaction {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 10px;
-    gap: 10px;
-  }
-  
-  .transaction-icon {
-    font-size: 1.5rem;
-  }
-  
-  .transaction-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    font-size: 0.9rem;
-  }
-  
-  .amount {
-    font-weight: bold;
-    font-size: 1rem;
-  }
-  
-  .bottom-nav {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0 0;
-    border-top: 1px solid #ddd;
-    font-size: 1.2rem;
-  }
-  
-  .bottom-nav .active {
-    color: black;
-  }
-  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.app {
+  background: #fff;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px 16px; /* padding lateral para que respire en pantallas pequeñas */
+}
+
+.header h1 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.user-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hi {
+  font-size: 1rem;
+}
+
+.subtext {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+.balance {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.actions button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  background: black;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.services {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.service {
+  flex: 1 1 22%;
+  text-align: center;
+  font-size: 0.8rem;
+  background: #f0f0f0;
+  padding: 10px 0;
+  border-radius: 10px;
+}
+
+.promo-card {
+  background: #fddde6;
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.promo-card .offer {
+  font-weight: bold;
+  font-size: 1rem;
+  color: #c6005a;
+}
+
+.promo-card .promo-title {
+  font-size: 0.95rem;
+}
+
+.promo-card .promo-img {
+  font-size: 2rem;
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+}
+
+.transactions-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transactions-header h2 {
+  font-size: 1rem;
+}
+
+.transactions-header a {
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: #007aff;
+}
+
+.transaction {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  gap: 10px;
+}
+
+.transaction-icon {
+  font-size: 1.5rem;
+}
+
+.transaction-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+}
+
+.amount {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0 0;
+  border-top: 1px solid #ddd;
+  font-size: 1.2rem;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
