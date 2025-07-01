@@ -127,3 +127,33 @@ footer nav {
 footer nav img {
   width: 24px;
 }
+
+i.bi {
+  font-size: 24px;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.actions button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+.services div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer nav {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+}
+footer nav i {
+  font-size: 24px;
+}
+.transaction i {
+  font-size: 28px;
+  margin-right: 1rem;
+}
+
